@@ -1,0 +1,48 @@
+#Create table departments on 2025-08-27 by Sergio Ayerdis, first db table
+
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Sergio Ayerdis
+      changes:
+        - createTable:
+            tableName: Departments
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar (255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: description
+                  type: varchar (500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: createdAt
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updatedAt
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: createdBy
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updatedBy
+                  type: int
+                  constraints:
+                    nullable: false

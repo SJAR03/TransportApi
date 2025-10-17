@@ -1,7 +1,6 @@
-package com.sjar.transportapi.infrastructure.rest.controller;
+package com.sjar.transportapi.infrastructure.rest;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;

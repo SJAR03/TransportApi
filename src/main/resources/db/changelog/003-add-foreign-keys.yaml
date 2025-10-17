@@ -1,0 +1,46 @@
+#Create table users on 2025-08-27 by Sergio Ayerdis, foreign keys for departments and users tables
+
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: Sergio Ayerdis
+      changes:
+        # Users.department_id -> Departments.id
+        - addForeignKeyConstraint:
+            baseTableName: Users
+            baseColumnNames: department_id
+            referencedTableName: Departments
+            referencedColumnNames: id
+            constraintName: fk_users_departments
+
+        # Departments.createdBy -> Users.id
+        - addForeignKeyConstraint:
+            baseTableName: Departments
+            baseColumnNames: createdBy
+            referencedTableName: Users
+            referencedColumnNames: id
+            constraintName: fk_departments_createdBy
+
+        # Departments.updatedBy -> Users.id
+        - addForeignKeyConstraint:
+            baseTableName: Departments
+            baseColumnNames: updatedBy
+            referencedTableName: Users
+            referencedColumnNames: id
+            constraintName: fk_departments_updatedBy
+
+        # Users.createdBy -> Users.id (self-reference)
+        - addForeignKeyConstraint:
+            baseTableName: Users
+            baseColumnNames: createdBy
+            referencedTableName: Users
+            referencedColumnNames: id
+            constraintName: fk_users_createdBy
+
+        # Users.updatedBy -> Users.id (self-reference)
+        - addForeignKeyConstraint:
+            baseTableName: Users
+            baseColumnNames: updatedBy
+            referencedTableName: Users
+            referencedColumnNames: id
+            constraintName: fk_users_updatedBy

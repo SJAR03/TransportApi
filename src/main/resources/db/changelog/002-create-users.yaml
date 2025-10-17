@@ -1,0 +1,74 @@
+#Create table users on 2025-08-27 by Sergio Ayerdis, second db table
+
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: Sergio Ayerdis
+      changes:
+        - createTable:
+            tableName: Users
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar (255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lastName
+                  type: varchar (255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: birthDate
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar (255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password_hash
+                  type: varchar (255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: department_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+              - column:
+                  name: createdAt
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updatedAt
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: createdBy
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updatedBy
+                  type: int
+                  constraints:
+                    nullable: false
